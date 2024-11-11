@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="digit" placeholder="enter the nth digit">
+    <input type="text" id="number" placeholder="enter number">
+    <button type="btn" id="convert">Convert</button>
+
+    <h1 id="out-put"></h1>
+
+    <script>
+
+
+
+        function nthdigit(digit, number) {
+            console.log(digit)
+            console.log(number)
+            if (digit < 2 || digit > 36) {
+                return "enter a valid nth place digit";
+            }
+            else {
+
+
+                let symbol = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                let result = "";
+
+                while (number > 0) {
+                    let remainder = number % digit;
+
+                    if (remainder > 9) {
+                        result += symbol.charAt(remainder);
+                    }
+                    else {
+                        result += symbol.charAt(remainder);
+                    }
+                    number = Math.floor(number / digit);
+                }
+                console.log(result)
+                return result;
+            }
+        }
+
+
+
+        document.querySelector("#convert").addEventListener('click', function () {
+            let digit = document.querySelector("#digit").value
+            let number = document.querySelector("#number").value
+            let output = document.querySelector("#out-put")
+
+             output.innerHTML= nthdigit(digit, number)
+            console.log("chal gaya code bhai....");
+        })
+
+    </script>
+</body>
+
+</html>
